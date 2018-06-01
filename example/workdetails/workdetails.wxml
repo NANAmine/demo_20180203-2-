@@ -1,0 +1,82 @@
+<view class="page">
+  <!-- workplace:"",
+    worktype:"",
+    workertype:"",
+    workerslill:"",
+    area:"",
+    salary:"",
+    peoson:"",
+    urgent_fee:"" -->
+  <view class="page__bd">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd">工作地址:</view>
+        <view class="weui-cell__ft" style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{workplace}}</view>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">工作类别:</view>
+        <view class="weui-cell__ft" style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{worktype}}</view>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">所需工种:</view>
+        <view class="weui-cell__ft" style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{workertype}}</view>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">所需技能:</view>
+        <view class="weui-cell__ft" style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{workerslill}}</view>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">工作量:</view>
+        <view class="weui-cell__ft" style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{area}}</view>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">薪水:</view>
+        <view class="weui-cell__ft" style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{salary}}</view>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">发布人:</view>
+        <view class="weui-cell__ft" style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{peoson}}</view>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">加急金额:</view>
+        <view class="weui-cell__ft" style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{urgent_fee}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- <view class="page__ft page__ft_spacing">
+      <view class="tr">
+        <navigator class='td' style='text-align:center' url='../userinfo/userinfo'>
+          <button class="weui-btn" style='width: 100%;' type="primary">
+            查看发布人详情</button>
+        </navigator>
+        <navigator class='td'>
+          <button bindtap='qwe' style='display:{{style}};width: 100%;' class="weui-btn" type="primary">
+            接单</button>
+        </navigator>
+      </view>
+    </view> -->
+     <view class="tr">
+      <view class='td' bindtap='boss_info'>
+        <button formType="submit" class="weui-btn" type="primary" style='width:100%;'>发布人详情</button>
+      </view>
+      <view style='display:{{style}};' class='td' bindtap='get_order'>
+        <button formType="submit" class="weui-btn" type="primary" style='width:100%;'>接单</button>
+      </view>
+    </view> 
+  </view>
+</view>

@@ -1,0 +1,24 @@
+/* example/person_realname/person_realname.wxss */
+.left{
+  margin-left: 10%;
+}
+.half{
+  float: left;
+  width: 40%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+ .center{
+ margin-left: 30%;
+} 
+.center_1{
+ margin-left: 20%;
+} 
+/* .weui-uploader__img {
+  display: block;
+  width: 80%;
+  height: 100px;
+} */
+.top{
+  margin-top: 10px;
+}

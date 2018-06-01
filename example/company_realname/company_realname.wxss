@@ -1,0 +1,10 @@
+/* example/person_realname/person_realname.wxss */
+.left{
+  margin-left: 40%;
+}
+.center{
+  text-align: center;
+}
+.top{
+  margin-top: 10px;
+}

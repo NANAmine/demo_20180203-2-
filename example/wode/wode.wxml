@@ -1,0 +1,115 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+          <image src="../images/pic_160.png" style="width: 50px; height: 50px; display: block" />
+        </view>
+        <view class="weui-cell__bd">
+          <view>{{user.name}}</view>
+          <view class="weui-badge" style="margin-left: 5px; background-color: #87CEEB" wx:if="{{user.user_authenticPer == 1}}">个人认证</view>
+          <view class="weui-badge" style="margin-left: 5px; background-color: #C0C0C0" wx:if="{{user.user_authenticPer == 0}}">个人未认证</view>
+          <view class="weui-badge" style="margin-left: 5px; background-color: #87CEEB" wx:if="{{user.user_authenticCom == 1}}">企业认证</view>
+          <view class="weui-badge" style="margin-left: 5px; background-color: #C0C0C0" wx:if="{{user.user_authenticCom == 0}}">企业未认证</view>
+          <view class="weui-badge" style="margin-left: 5px; background-color: #C0C0C0" wx:if="{{user.skills.length == 0}}">暂无技能</view>
+          <view class="weui-badge" style="margin-left: 5px;" wx:for="{{user.skills}}" wx:key="id">{{item.name}}</view>
+        </view>
+      </view>
+      <view>
+        <view class=" page__bd_spacing">
+          <!-- <view class="weui-form-preview__item">
+            <view class="weui-form-preview__value">{{user.avgscore_worker}}</view>
+            <view class="weui-form-preview__value">{{user.avgscore_boss}}</view>
+            <view class="weui-form-preview__value">{{user.beans}}</view>
+            <view class="weui-form-preview__value">{{user.money}}</view>
+          </view> -->
+          <view class="weui-flex">
+            <view class="weui-flex__item" style='margin-left:-10%'>
+              <view class="placeholder" style='width:100%'>工人评分</view>
+            </view>
+            <view class="weui-flex__item">
+              <view class="placeholder" style='width:100%'>工长评分</view>
+            </view>
+            <view class="weui-flex__item">
+              <view class="placeholder" style='width:100%'>可接单量</view>
+            </view>
+            <view class="weui-flex__item">
+              <view class="placeholder" style='width:100%'>账户余额</view>
+            </view>
+          </view>
+          <view class="weui-flex">
+            <view class="weui-flex__item">
+              <view class="placeholder2" style='margin-left:-10%'>{{user.avgscore_worker}} 分</view>
+            </view>
+            <view class="weui-flex__item">
+              <view class="placeholder">{{user.avgscore_boss}} 分</view>
+            </view>
+            <view class="weui-flex__item">
+              <view class="placeholder">{{user.beans}}</view>
+            </view>
+            <view class="weui-flex__item">
+              <view class="placeholder">{{user.money}} 元</view>
+            </view>
+          </view>
+          <!-- <view class="weui-form-preview__item">
+            <view class="weui-form-preview__text">工人评分</view>
+            <view class="weui-form-preview__text">工长评分</view>
+            <view class="weui-form-preview__text">最大接单量</view>
+            <view class="weui-form-preview__text">账户余额</view>
+          </view> -->
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells__title">我的订单</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_access">
+        <navigator url='../get_order/get_order' class="weui-cell__bd">我的接单</navigator>
+        <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size: 0"></view>
+      </view>
+      <view class="weui-cell weui-cell_access">
+        <navigator url='../history_order/history_order' class="weui-cell__bd">历史接单</navigator>
+        <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size: 0"></view>
+      </view>
+    </view>
+
+    <view class="weui-cells__title">个人中心</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_access">
+        <navigator url='../person_realname/person_realname' class="weui-cell__bd">个人实名认证</navigator>
+        <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;" wx:if="{{user.user_authenticPer == 0}}">点击认证</view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_access">
+        <navigator url='../company_realname/company_realname' class="weui-cell__bd">公司实名认证</navigator>
+        <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size: 0">
+          <!-- <view style="display: inline-block;vertical-align:middle; font-size: 17px;" wx:if="{{user.user_authenticCom == 0}}">点击认证</view> -->
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_access" bindtap='toSelfinfo'>
+        <navigator url='../selfinfo/selfinfo' class="weui-cell__bd">我的详细资料</navigator>
+        <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size: 0">
+          <!-- <view style="display: inline-block;vertical-align:middle; font-size: 17px;">点击修改</view> -->
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells__title">我的钱包</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd">余额提现</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{user.money}}元</view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd">账户充值</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">支持微信、支付宝、储蓄卡</view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>

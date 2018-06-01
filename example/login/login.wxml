@@ -1,0 +1,161 @@
+<!--example/login/login.wxml-->
+<view class="page">
+  <view class="page__bd">
+    <form>
+      <view class="weui-tab">
+        <view class="weui-navbar">
+          <block wx:for="{{tabs}}" wx:key="*this">
+            <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+              <view class="weui-navbar__title">{{item}}</view>
+            </view>
+          </block>
+          <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+        </view>
+        <view class="weui-tab__panel">
+          <view class="weui-toptips_warn" style='text-align: center;' wx:if="{{showTopTips}}">{{errorInfo}}</view>
+          <form bindsubmit='form1Submit'>
+          <view class="weui-cells weui-cells_after-title" hidden="{{activeIndex != 0}}">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">手机号</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入手机号" name="phonenumber" bindblur="blurPhonenumber" confirm-type="next" maxlength='11' />
+              </view>
+              <view class='weui-cell_ft'>
+                <icon type="warn" size="23" color="#E64340" wx:if="{{addFlag1}}"></icon>
+              </view>
+              <view class='weui-cell_ft'>
+                <icon type="success" size="23" wx:if="{{addFlag4}}"></icon>
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_input weui-cell_vcode">
+              <view class="weui-cell__hd">
+                <view class="weui-label">密码</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" password placeholder="请输入密码" name="password" bindblur="blurPassword" confirm-type="next" maxlength='8' />
+              </view>
+              <view style='margin-right:2%'>
+                <icon type="warn" size="23" color="#E64340" wx:if="{{addFlag2}}"></icon>
+              </view>
+              <view style='margin-right:2%'>
+                <icon type="success" size="23" wx:if="{{addFlag3}}"></icon>
+              </view>
+            </view>
+          </view>
+          <view hidden="{{activeIndex != 0}}">
+            <button formType="submit" class="weui-btn" type="primary" style='width:80%;margin-top:10px'>确定</button>
+            <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">登录 </button> -->
+            <navigator class="weui-vcode-btn" url='../forgive_password/forgive_password'>忘记密码</navigator>
+          </view>
+          </form>
+          <form bindsubmit='form2Submit'>
+            <view class="weui-cells weui-cells_after-title" hidden="{{activeIndex != 1}}">
+              <view style='display:'>
+                <view class="weui-cell weui-cell_input">
+                  <view class="weui-cell__hd">
+                    <view class="weui-label">手机号</view>
+                  </view>
+                  <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入手机号" name="phonenumber" bindblur="blurPhonenumber" confirm-type="next" maxlength='11' />
+                  </view>
+                  <view class='weui-cell_ft'>
+                    <icon type="warn" size="23" color="#E64340" wx:if="{{addFlag1}}"></icon>
+                  </view>
+                  <view class='weui-cell_ft'>
+                    <icon type="success" size="23" wx:if="{{addFlag4}}"></icon>
+                  </view>
+                </view>
+                <view class="weui-cell weui-cell_input weui-cell_vcode">
+                  <view class="weui-cell__hd">
+                    <view class="weui-label">验证码</view>
+                  </view>
+                  <view class="weui-cell__bd">
+                    <input class="weui-input" style="width:100%" placeholder="请输入验证码" bindblur='blurvalidateCode' maxlength='4' />
+                  </view>
+                  <view style='margin-right:2%'>
+                    <icon type="warn" size="23" color="#E64340" wx:if="{{addFlag7}}"></icon>
+                  </view>
+                  <view style='margin-right:2%'>
+                    <icon type="success" size="23" wx:if="{{addFlag8}}"></icon>
+                  </view>
+                  <view class="code" style="font-size: 25px;" bindtap='createCode'>
+                    {{code}}</view>
+                </view>
+                <view class="weui-cell weui-cell_input weui-cell_vcode">
+                  <view class="weui-cell__hd">
+                    <view class="weui-label">密码</view>
+                  </view>
+                  <view class="weui-cell__bd">
+                    <input class="weui-input" password placeholder="请输入密码" name="password" bindblur="blurPassword" confirm-type="next" maxlength='8' />
+                  </view>
+                  <view style='margin-right:2%'>
+                    <icon type="warn" size="23" color="#E64340" wx:if="{{addFlag2}}"></icon>
+                  </view>
+                  <view style='margin-right:2%'>
+                    <icon type="success" size="23" wx:if="{{addFlag3}}"></icon>
+                  </view>
+                </view>
+                <view class="weui-cell weui-cell_input weui-cell_vcode">
+                  <view class="weui-cell__hd">
+                    <view class="weui-label">确认密码</view>
+                  </view>
+                  <view class="weui-cell__bd">
+                    <input class="weui-input" password placeholder="请确认密码" name="password" bindblur="reblurPassword" confirm-type="next" maxlength='8' />
+                  </view>
+                  <view style='margin-right:2%'>
+                    <icon type="warn" size="23" color="#E64340" wx:if="{{addFlag5}}"></icon>
+                  </view>
+                  <view style='margin-right:2%'>
+                    <icon type="success" size="23" wx:if="{{addFlag6}}"></icon>
+                  </view>
+                </view>
+                <view class="weui-cell weui-cell_input weui-cell_vcode" style='display:{{display}}'>
+                  <view class="weui-cell__hd">
+                    <view class="weui-label">手机验证码</view>
+                  </view>
+                  <view class="weui-cell__bd">
+                    <input class="weui-input" type="text" placeholder="请输入手机验证码" bindblur='blurmessageCode' maxlength='6' />
+                  </view>
+                  <view style='margin-right:2%'>
+                    <icon type="warn" size="23" color="#E64340" wx:if="{{addFlag9}}"></icon>
+                  </view>
+                  <view style='margin-right:2%'>
+                    <icon type="success" size="23" wx:if="{{addFlag10}}"></icon>
+                  </view>
+                  <view class="weui-cell__ft">
+                    <view class="weui-vcode-btn" bindtap='sendnum'>获取验证码</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view style='display:' hidden="{{activeIndex != 1}}">
+              <checkbox-group bindchange="bindAgreeChange">
+                <label class="weui-agree" for="weuiAgree">
+                  <view class="weui-agree__text">
+                    <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+                    <view class="weui-agree__checkbox-icon">
+                      <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+                    </view>
+                    阅读并同意
+                    <navigator url="Safety_clause" class="weui-agree__link">《相关条款》</navigator>
+                  </view>
+                </label>
+              </checkbox-group>
+              <button formType="submit" class="weui-btn" type="primary" style='width:80%;margin-top:10px;'>确定</button>
+            </view>
+          </form>
+        </view>
+      </view>
+    </form>
+    <view hidden="{{activeIndex != 0}}">
+      <view style='text-align:center'>微信登录</view>
+      <view>
+        <navigator style='text-align:center' url='wx_login'>
+          <image style='width: 80px; height: 80px;' src='../images/timg3.png'></image>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,27 @@
+<view class='page'>
+  <view class='page_bd'>
+    <view class="weui-cells__title">评分</view>
+    <view class="icon_sp_area magingout">
+
+
+      <icon wx:for="{{icont}}" bindtap='changeicon' class='magingin' id="{{item.id}}" type="{{item.name}}" size="30"></icon>
+
+    </view>
+    <view class="weui-cells__title">标签</view>
+    <view class=" left">
+      <button wx:for="{{buttont}}" bindtap='changebt' class="weui-btn mini-btn magingin" id='{{item.num}}' type="{{item.status}}" size="mini">{{item.name}}</button>
+    </view>
+
+    <view class='width'></view>
+    <view class="weui-cells__title width">评价</view>
+    <view class="weui-cells weui-cells_after-title magingtextarea">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <textarea value='{{userInput}}' bindinput='gettextarea' class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" />
+          <view class="weui-textarea-counter">{{textnumber}}/140</view>
+        </view>
+      </view>
+    </view>
+    <button bindtap='formsubmit' class="weui-btn magingtextarea" type="primary">提交</button>
+  </view>
+</view>

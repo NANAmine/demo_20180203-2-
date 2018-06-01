@@ -1,0 +1,29 @@
+<view class="page">
+   
+    <view class="page__bd">
+       
+
+       <view class="weui-cells weui-cells_after-title left_maging">
+        <view class="weui-cell__bd ">
+          <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+            <view class="weui-select weui-select_in-select-after"> {{region[0]}}-{{region[1]}}-{{region[2]}}</view>
+          </picker>
+        </view>
+      </view>
+
+        <view class="weui-cells__title">工作列表</view>
+        <!-- <view class="weui-cells weui-cells_after-title left_maging">
+            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">河北省-廊坊市-广阳区</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+          </view> -->
+         <view wx:for="{{place}}"  class="weui-cells weui-cells_after-title left_maging">
+            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view bindtap='topurl' id='{{item.id}}' class="weui-cell__bd">{{item.address}}-{{item.community}}</view><view wx:if="{{!job_status}}" class='weiwancheng'>未完成</view><view wx:if="{{job_status}}"  class='yiwancheng'>已完成</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+         </view>
+           <button bindtap='newpublish' class="weui-btn left_maging_1" type="">+添加新发布</button>
+    </view>
+</view>

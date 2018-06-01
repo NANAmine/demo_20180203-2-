@@ -1,0 +1,92 @@
+{
+  "pages": [
+    "example/appindex/appindex",
+    "example/show_job_list/show_job_list",
+    "example/wode/wode",
+    "example/index",
+    "example/button/button",
+    "example/list/list",
+    "example/input/input",
+    "example/slider/slider",
+    "example/uploader/uploader",
+    "example/article/article",
+    "example/badge/badge",
+    "example/flex/flex",
+    "example/footer/footer",
+    "example/gallery/gallery",
+    "example/grid/grid",
+    "example/icons/icons",
+    "example/loadmore/loadmore",
+    "example/panel/panel",
+    "example/preview/preview",
+    "example/progress/progress",
+    "example/actionsheet/actionsheet",
+    "example/dialog/dialog",
+    "example/msg/msg",
+    "example/msg/msg_success",
+    "example/msg/msg_fail",
+    "example/picker/picker",
+    "example/toast/toast",
+    "example/navbar/navbar",
+    "example/tabbar/tabbar",
+    "example/searchbar/searchbar",
+    "example/add_job/add_job",
+    "example/show_job_jobitems/show_job_jobitems",
+    "example/selfinfo/selfinfo",
+    "example/evaluation/evaluation",
+    "example/rework/rework",
+    "example/person_realname/person_realname",
+    "example/company_realname/company_realname",
+    "example/workdetails/workdetails",
+    "example/workerinfo/workerinfo",
+    "example/login/login",
+    "example/login/Safety_clause",
+    "example/register/register",
+    "example/register/Safety_clause",
+    "example/forgive_password/forgive_password",
+    "example/appshow/appshow",
+    "example/login/wx_login",
+    "example/get_order/get_order",
+    "example/userinfo/userinfo",
+    "example/history_order/history_order",
+    "example/worker_evaluation/worker_evaluation"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#f8f8f8",
+    "backgroundColor": "#f8f8f8"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "tabBar": {
+    "color": "#ddd",
+    "selectedColor": "#3cc51f",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "example/appindex/appindex",
+        "text": "首页",
+        "iconPath": "example/images/icon_intro.png",
+        "selectedIconPath": "example/images/icon_intro.png"
+      },
+      {
+        "pagePath": "example/show_job_list/show_job_list",
+        "iconPath": "example/images/icon_intro.png",
+        "selectedIconPath": "example/images/icon_intro.png",
+        "text": "工长"
+      },
+      {
+        "pagePath": "example/wode/wode",
+        "iconPath": "example/images/icon_intro.png",
+        "selectedIconPath": "example/images/icon_intro.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "debug": true
+}

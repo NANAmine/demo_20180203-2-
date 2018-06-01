@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "example/get_order/get_order"
+  ],
+  "window": {
+    "enablePullDownRefresh":false
+  },
+  "networkTimeout": {
+    
+  },
+  "debug": true
+}

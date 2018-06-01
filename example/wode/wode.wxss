@@ -1,0 +1,40 @@
+.weui-form-preview__text {
+  font-size: 12px;
+  color: #999;
+  float: left;
+  margin-left: 2em;
+}
+
+.weui-form-preview__value {
+  font-size: 12px;
+  float: left;
+  margin-left: 4em;
+  margin-right: 1.5em;
+}
+.weui-form-preview__hd {
+  position: relative;
+  text-align: right;
+  line-height: 20px;
+}
+.weui-form-preview__hd:before {
+ border-bottom: 1rpx solid #d9d9d9;
+}
+
+.placeholder{
+    margin: 10px;
+    padding: 0 10px;
+    text-align: center;
+    background-color: white;
+    height: 1em;
+    line-height: 1em;
+    color: black;
+}
+.placeholder2{
+    margin: 10px;
+    padding: 0 15px;
+    text-align: center;
+    background-color: white;
+    height: 1em;
+    line-height: 1em;
+    color: black;
+}

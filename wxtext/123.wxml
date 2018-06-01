@@ -1,0 +1,80 @@
+<view class="page">
+    <view class="page__title">我的接单</view>
+  <view>
+    <view id="count_down" class=" weui-tab" style="width: 100%;">
+        <!-- <li class="mui-card" id="show_  + i +  " style="display:;background-color:"> +
+          <table border="0" width="100%">
+            <tr>
+              <td height="2px" colspan="2"></td>
+            </tr>
+            <tr>
+              <td width="5px"></td>
+              <td align="right" class=" mui-badge mui-badge-blue">
+                <h4> + data.msg[i].jobitem_user.jobitem.jobtype.name + </h4>
+              </td>
+              <td>
+                <h3> + data.msg[i].jobitem_user.jobitem.job.community + </h3>
+              </td>
+              <td></td>
+              <td class="mui-badge mui-badge-green" id="urgent_fee_  + data.msg[i].jobitem_user.jobitem.id +  " style="display: none;">加急费: + data.msg[i].jobitem_user.jobitem.urgent_fee + </td>
+            </tr>
+          </table> +
+          <table>
+            <tr id="show  + i +  ">&nbsp;&nbsp;&nbsp;
+              <td style="margin-left: 20%;">&nbsp;&nbsp;&nbsp;技能:</td>
+            </tr>
+          </table> +
+          <table>
+            <tr>
+              <td align="left" width="70%">&nbsp;&nbsp;&nbsp;面积： + data.msg[i].jobitem_user.jobitem.area + unit + </td> +
+              <td width="30%">酬劳： + data.msg[i].jobitem_user.jobitem.salary + 元</td>
+            </tr> +
+            <tr>
+              <td align="left" width="20%">&nbsp;&nbsp;&nbsp;房屋类型： + house + </td>
+            </tr> +
+            <tr>
+              <td align="left" width="20%">&nbsp;&nbsp;&nbsp;预计开工时间： + start_time + </td>
+            </tr>
+          </table> +
+          <table class="mui-pull-right" style="margin-bottom: 2%;">
+            <tr>
+              <td>
+                <input type="submit" value="详情" class="mui-pull-right" onclick="order_info(  + data.msg[i].jobitem_user.jobitem.id +  ,  + data.msg[i].jobitem_user.jobitem.job.user.id +  ,  + flag +  )">
+              </td> +
+              <td>&nbsp;
+                <input type="submit" id="submit_  + i +  " value=+ button + class="mui-pull-right" onclick="submit_onclick(  + i +  )">
+              </td>
+            </tr>
+          </table> +
+        </li> -->
+        <form bindsubmit='form1Submit' >
+        <view class="container weui-cell" wx:for="{{content}}">
+          <view class="table" >
+            <view class="tr">
+              <view class='td job_type' style='width:60%'>工种：{{item.job_type_name}}</view>
+              <view class="th">小区：{{item.community}}</view>
+              <view class="td fee" style="display:{{item.urgent_fee_style}}"> 加急费:{{item.urgent_fee}}</view>
+            </view>
+            <view class="tr">
+              <view class="td"> 技能: {{item.skill}}</view>
+            </view>
+             <view class="tr">
+              <view class="td"> 面积: {{item.area}}</view>
+              <view class="td"> 酬劳: {{item.salary}}</view>
+            </view>
+             <view class="tr">
+              <view class="td"> 房屋类型：{{item.house}}</view>
+            </view>
+            <view class="tr">
+              <view class="td"> 预计开工时间：{{item.start_time}} </view>
+            </view>
+            <view class="tr">
+               <view class='td'><button formType="submit" class="weui-btn" type="primary" style='width:100%;'>详情</button></view>
+               <view class='td'><button formType="submit" class="weui-btn" type="primary" style='width:100%;'>{{item.button}}</button></view>
+            </view>
+          </view>
+        </view>
+        </form>
+    </view>
+  </view>
+</view>

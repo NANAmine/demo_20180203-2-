@@ -1,0 +1,153 @@
+<view class="page">
+
+  <view class="page__bd">
+    <view class='ggw'>
+      <view class="weui-cell__bd  ">
+        <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+          <block wx:for="{{tplb}}" wx:for-index="index">
+            <swiper-item>
+              <image src="{{item.url}}" class="slide-image" mode="scaleToFill" />
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+    </view>
+
+
+    <view class="weui-cells weui-cells_after-title ">
+      <view class="weui-cell__bd ">
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+          <view class='center'> {{region[0]}}-{{region[1]}}-{{region[2]}}</view>
+        </picker>
+      </view>
+    </view>
+    <view class="weui-cells__title">工种</view>
+    <view class='bqleft'>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+       <icon type="warn" class='bqleft topmove' size="23"></icon>
+      <button bindtap='changebt' class="weui-btn mini-btn " id='0' type="{{buttont[0].types}}" size="mini">
+        {{buttont[0].name}}</button>
+      </view>
+      <view class="weui-flex__item">
+       <icon type="warn" class='bqleft topmove' size="23"></icon>
+      <button bindtap='changebt' class="weui-btn mini-btn " id='1' type="{{buttont[1].types}}" size="mini">
+        {{buttont[1].name}}</button>
+      </view>
+      <view class="weui-flex__item">
+       <icon type="warn" class='bqleft topmove' size="23"></icon>
+      <button bindtap='changebt' class="weui-btn mini-btn " id='2' type="{{buttont[2].types}}" size="mini">
+        {{buttont[2].name}}</button>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+       <icon type="warn" class='bqleft topmove' size="23"></icon>
+      <button bindtap='changebt' class="weui-btn mini-btn " id='3' type="{{buttont[3].types}}" size="mini">
+        {{buttont[3].name}}</button>
+      </view>
+      <view class="weui-flex__item">
+       <icon type="warn" class='bqleft topmove' size="23"></icon>
+      <button bindtap='changebt' class="weui-btn mini-btn " id='4' type="{{buttont[4].types}}" size="mini">
+        {{buttont[4].name}}</button>
+      </view>
+      <view class="weui-flex__item">
+       <icon type="warn" class='bqleft topmove' size="23"></icon>
+      <button bindtap='changebt' class="weui-btn mini-btn " id='5' type="{{buttont[5].types}}" size="mini">
+        {{buttont[5].name}}</button>
+      </view>
+    </view>
+</view>
+
+    <!-- <view class=''>
+
+      <button wx:for="{{buttont}}" bindtap='changebt' class="weui-btn mini-btn magingin" id='{{item.id}}' type="{{item.name}}" size="mini">
+        <icon type="warn" size="23"></icon>工种{{item.id}}</button>
+    </view> -->
+
+    <!-- <view class='bqleft'>
+      <icon type="warn" class='bqleft topmove' size="23"></icon>
+      <button bindtap='changebt' class="weui-btn mini-btn " id='0' type="{{buttont[0].types}}" size="mini">
+        {{buttont[0].name}}</button>
+     >
+      <icon type="warn" class='bqleft topmove' size="23"></icon>
+      <button bindtap='changebt' class="weui-btn mini-btn " id='1' type="{{buttont[1].types}}" size="mini">
+        {{buttont[1].name}}</button>
+   
+      <icon type="warn" class='bqleft topmove' size="23"></icon>
+      <button bindtap='changebt' class="weui-btn mini-btn " id='2' type="{{buttont[2].types}}" size="mini">
+        {{buttont[2].name}}</button>
+     
+      <icon type="warn" class='bqleft topmove' size="23"></icon>
+      <button bindtap='changebt' class="weui-btn mini-btn " id='3' type="{{buttont[3].types}}" size="mini">
+        {{buttont[3].name}}</button>
+      
+      <icon type="warn" class='bqleft topmove' size="23"></icon>
+      <button bindtap='changebt' class="weui-btn mini-btn " id='4' type="{{buttont[4].types}}" size="mini">
+        {{buttont[4].name}}</button>
+    
+      <icon type="warn" class='bqleft topmove' size="23"></icon>
+      <button bindtap='changebt' class="weui-btn mini-btn " id='5' type="{{buttont[5].types}}" size="mini">
+        {{buttont[5].name}}</button>
+    </view> -->
+
+    <view class="weui-cells__title ">工作列表</view>
+    <view class="weui-cells__title " style='text-align: center;display: {{style}};'>订单栏空空如也~</view>
+    <!-- <view wx:for="{{place}}" bindtap='topurl' class="weui-cells weui-cells_after-title left_maging margintop">
+      <navigator url="#" class=" weui-cell_access">
+        <view class=" lines ">
+          <text decode="{{true}}">&emsp;</text>
+        </view>
+        <view class=" lines  zt">{{item.community}}</view>
+        <view class=" lines" style='color:red'>面积：{{item.area}}平米</view>
+        <view class="weui-cell__bd lines">技能：{{item.skills}}</view>
+        <view class="weui-cell__bd lines">
+          <text decode="{{true}}">房屋类型：{{item.roomtype}} &emsp;&emsp;酬劳：{{item.salary}}元</text>
+        </view>
+
+        <view class="weui-cell__bd lines">接单：{{item.peonum}}人</view>
+
+      </navigator>
+      <view class=''>
+        <button bindtap='cs' class="weui-btn mini-btn jiedan1" id='1' type="primary" size="mini">
+          详情</button>
+        <button bindtap='qwe' class="weui-btn mini-btn jiedan2" id='1' type="primary" size="mini">
+          接单</button>
+        <button bindtap='qwe' class="weui-btn mini-btn jiedan2" id='1' type="primary" size="mini">
+          分享</button>
+      </view>
+    </view> -->
+    <form bindsubmit='form1Submit'>
+      <view class="container weui-cell" wx:for="{{content}}">
+        <view class="table">
+          <view class="tr">
+            <view class='td job_type' style='width:60%'>{{item.job_type_name}}</view>
+            <view class="th">{{item.community}}</view>
+            <view class="td fee" style="display:{{item.urgent_fee_style}}"> 加急费:{{item.urgent_fee}}</view>
+          </view>
+          <view class="tr">
+            <view class="td"> 技能: {{item.skill}}</view>
+          </view>
+          <view class="tr">
+            <view class="td"> 面积: {{item.area}}</view>
+            <view class="td"> 酬劳: {{item.salary}}</view>
+          </view>
+          <view class="tr">
+            <view class="td"> 房屋类型：{{item.house}}</view>
+          </view>
+          <view class="tr">
+            <view class="td"> 预计开工时间：{{item.start_time}} </view>
+          </view>
+          <view class="tr">
+            <button bindtap='toinformstion' class=" mini-btn td" data-boss_id="{{item.jobboss_id}}" id='{{item.jobitem_id}}' type="primary" size="mini">
+              详情</button>
+            <button bindtap='togetorder' class=" mini-btn td" id='{{item.jobitem_id}}' type="primary" size="mini">
+              接单</button>
+            <button bindtap='toshowother' class=" mini-btn td" id='{{item.jobitem_id}}' type="primary" size="mini">
+              分享</button>
+          </view>
+        </view>
+      </view>
+    </form>
+  </view>
+</view>

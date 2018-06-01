@@ -1,0 +1,30 @@
+/* example/evaluation/evaluation.wxss */
+.magingout{
+  margin-left: 17%;
+  margin-top: 20px;
+}
+.left{
+  margin-left: 10%;
+
+}
+.magingin{
+  margin-left: 5%;
+}
+.bq{
+  float: left;
+  width: 20%;
+  margin-left: 5%;
+  margin-right: 5%;
+  background: blue;
+}
+.magingtop{
+  margin-top: 20px;
+}
+.wightone{
+  width: 100%;
+}
+.magingtextarea{
+  margin-top: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
+}

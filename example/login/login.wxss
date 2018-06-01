@@ -1,0 +1,36 @@
+/* example/login/login.wxss */
+/** wxss **/
+/** 修改button默认的点击态样式类**/
+.button-hover {
+  background-color: red;
+}
+/** 添加自定义button点击态样式类**/
+.other-button-hover {
+  background-color: blue;
+}
+.code {
+				/* background: url(code_bg.jpg); */
+				font-family: Arial;
+				font-style: italic;
+				color: blue;
+				font-size: 30px;
+				border: 0;
+				padding: 2px 3px;
+				letter-spacing: 3px;
+				font-weight: bolder;
+				float: left;
+				cursor: pointer;
+				width: 100px;
+				height: 40px;
+        line-height: 40px;
+				text-align: center;
+				vertical-align: middle;
+        background-color: lightgray;
+			}
+/* button {
+  margin: 0 auto;
+  width: 80%;
+} */
+/* .weui-cell__btn{
+text-align: center;
+} */

@@ -1,0 +1,97 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+
+  <view class="page__bd">
+  <p style="color: red;">注意：认证信息一旦认证成功无法修改，请务必真实填写</p>
+    <view class="weui-form-preview__hd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">认证状态：{{personreamnameflag}}</view>
+      </view>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">姓名</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input id='username' value="{{username}}" bindinput='gettextarea' class="weui-input" disabled='{{disabledflag}}' placeholder="请输入真实姓名" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">性别</view>
+        </view>
+        <view class="weui-cell__bd">
+          <!--sexchange <input id='username' bindinput='gettextarea' class="weui-input" placeholder="性别" /> --> <button id='man' disabled='{{disabledflag}}' bindtap="sexchange" class="weui-btn mini-btn" type="{{sexbtn_1}}" size="mini">男</button>
+           <button id='woman' disabled='{{disabledflag}}' bindtap="sexchange" class="weui-btn mini-btn left" type="{{sexbtn_2}}" size="mini">女</button>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">身份证号</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input id='idcardnumber' value="{{idcardnumber}}" bindinput='gettextarea' class="weui-input" disabled='{{disabledflag}}' placeholder="请输入身份证号" />
+        </view>
+      </view>
+
+
+      <!-- <view class="weui-cell__ft">
+          <icon type="warn" size="23" color="#E64340"></icon>
+        </view> -->
+
+
+    </view>
+
+
+
+
+    <view class="top" style=''>
+      <!-- <button  bindtap="chooseImage">上传图片</button> -->
+      <view class='half'>
+        <button id='btn_1' class="weui-btn mini-btn " type="primary" size="mini" bindtap="chooseImage">{{buttonname_1}}</button>
+        <view hidden='{{files_1==""}}' class="weui-uploader__file  " bindtap="previewImage" id="files_1">
+          <image id='img_1' class="weui-uploader__img center" src="{{files_1}}" mode="aspectFit" />
+        </view>
+        <view hidden='{{files_1!=""}}' class="weui-uploader__file center_1">
+         <image id='vie_1' class="weui-uploader__img " src="{{imgsrc_1}}" bindtap="chooseImage" mode="aspectFit" />
+          <!-- <view id='vie_1' class="weui-uploader__input " bindtap="chooseImage"></view> -->
+        </view>
+      </view>
+      <view class='half'>
+        <button id='btn_2' class="weui-btn mini-btn " type="primary" size="mini" bindtap="chooseImage">{{buttonname_2}}</button>
+        <view hidden='{{files_2==""}}' class="weui-uploader__file  " bindtap="previewImage" id="files_2">
+          <image id='img_2' class="weui-uploader__img center" src="{{files_2}}" mode="aspectFit" />
+        </view>
+        <view hidden='{{files_2!=""}}' class="weui-uploader__file center_1">
+         <image id='vie_2' class="weui-uploader__img " src="{{imgsrc_2}}" bindtap="chooseImage" mode="aspectFit" />
+          <!-- <view id='vie_2' class="weui-uploader__input " bindtap="chooseImage"></view> -->
+        </view>
+      </view>
+
+      <!-- <view>
+        <button id='btn_1' class="weui-btn mini-btn half" type="primary" size="mini" bindtap="chooseImage">{{buttonname_1}}</button>
+         <button id='btn_2' class="weui-btn mini-btn half" type="primary" size="mini" bindtap="chooseImage">{{buttonname_2}}</button>
+      </view> -->
+
+
+      <!-- <view>
+        <view class="weui-uploader__file  half" bindtap="previewImage" id="files_1">
+          <image id='img_1' class="weui-uploader__img" src="{{files_1}}" mode="scaleToFill" />
+        </view>
+        <view class="weui-uploader__file  half" bindtap="previewImage" id="files_2">
+          <image id='img_2' class="weui-uploader__img" src="{{files_2}}" mode="scaleToFill" />
+        </view>
+      </view> -->
+
+
+      <!-- <view class="weui-uploader__input-box">
+        <view class="weui-uploader__input" bindtap="chooseImage"></view>
+      </view>  -->
+    </view>
+
+    <view class="weui-btn-area">
+      <button class="weui-btn" hidden='{{sunmitshow}}' type="primary" bindtap="formsubtim">提交</button>
+      <button class="weui-btn" hidden='{{!sunmitshow}}' type="primary" bindtap="comeback">确定</button>
+    </view>
+  </view>
+</view>

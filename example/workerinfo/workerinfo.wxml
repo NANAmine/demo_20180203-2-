@@ -1,0 +1,49 @@
+<view class="page">
+ <!-- name:"",
+    graded:"",
+    skills:"", 
+    sex:"",
+    days:"",
+    address:"",
+    -->
+  <view class="page__bd">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd">姓名:</view>
+        <view class="weui-cell__ft" style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{name}}</view>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">工人评分:</view>
+        <view class="weui-cell__ft" style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{graded}}</view>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">技能:</view>
+        <view class="weui-cell__ft" style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{skills}}</view>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">性别:</view>
+        <view class="weui-cell__ft" style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{sex}}</view>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">出生日期:</view>
+        <view class="weui-cell__ft" style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{days}}</view>
+        </view>
+      </view>
+       <view class="weui-cell">
+        <view class="weui-cell__bd">居住地址:</view>
+        <view class="weui-cell__ft" style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{address}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

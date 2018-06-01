@@ -1,0 +1,6 @@
+<!--example/login/wx_login.wxml-->
+<view class='page'>
+<view class='page__bd'>
+<button open-type="getPhoneNumber" bindgetuserinfo='getPhoneNumber'>获取手机号</button>
+</view>
+</view>

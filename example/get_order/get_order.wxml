@@ -1,0 +1,43 @@
+<view class="page">
+  <view class="page__title">我的接单</view>
+  <view class="weui-cells__title " style='text-align: center;display: {{style}};'>订单栏空空如也~</view>
+  <loading hidden="{{loadingHidden}}">
+    加载中...
+  </loading>
+  <view style="display:{{showform}}">
+    <view id="count_down" class=" weui-tab" style="width: 100%;">
+      <form bindsubmit='form1Submit'>
+        <view class="container weui-cell" wx:for="{{content}}">
+          <view class="table">
+            <view class="tr">
+              <view class='td job_type' style='width:60%'>{{item.job_type_name}}</view>
+              <view class="th">{{item.community}}</view>
+              <view class="td fee" style="display:{{item.urgent_fee_style}}"> 加急费:{{item.urgent_fee}}</view>
+            </view>
+            <view class="tr">
+              <view class="td"> 技能: {{item.skill}}</view>
+            </view>
+            <view class="tr">
+              <view class="td"> 面积: {{item.area}}{{item.unit}}</view>
+              <view class="td"> 酬劳: {{item.salary}}元</view>
+            </view>
+            <view class="tr">
+              <view class="td"> 房屋类型：{{item.house}}</view>
+            </view>
+            <view class="tr">
+              <view class="td"> 预计开工时间：{{item.start_time}} </view>
+            </view>
+            <view class="tr">
+              <view id='get_id' class='td' bindtap='order_info' data-boss_id="{{item.job_user_id}}" data-jobitem_id="{{item.jobitem_id}}" data-flag="1">
+                <button formType="submit" class="weui-btn" type="primary" style='width:100%;'>详情</button>
+              </view>
+              <view class='td' data-jobitem_user_id="{{item.jobitem_user_id}}" data-rework_status="{{item.rework_status}}" data-button="{{item.button}}" bindtap='submit_onclick'>
+                <button formType="submit" class="weui-btn" type="primary" style='width:100%;'>{{item.button}}</button>
+              </view>
+            </view>
+          </view>
+        </view>
+      </form>
+    </view>
+  </view>
+</view>

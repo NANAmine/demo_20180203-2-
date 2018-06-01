@@ -1,0 +1,97 @@
+<view class="page">
+
+  <view class="page__bd">
+
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd">姓名:</view>
+        <view class="weui-cell__ft" style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{user.name}}</view>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">工人评分:</view>
+        <view class="weui-cell__ft" style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{user.avgscore_worker}}</view>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">工长评分:</view>
+        <view class="weui-cell__ft" style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{user.avgscore_boss}}</view>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">最大接单量:</view>
+        <view class="weui-cell__ft" style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{user.beans}}</view>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">技能:</view>
+        <view class="weui-cell__ft" style="font-size: 0">
+          <view class="weui-badge" style="margin-left: 5px;" wx:if="{{user.skills.length != 0}}" wx:for="{{user.skills}}" wx:key="id">{{item.name}}</view>
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;" wx:if="{{user.skills.length == 0}}">暂无技能</view>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">电话:</view>
+        <view class="weui-cell__ft " style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{user.phone}}</view>
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;" wx:if="{{user.phone == null}}">点击添加</view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd">微信号:</view>
+        <input class="weui-input" placeholder="输入微信号" name="wechat" confirm-type="done" wx:if="{{updateWechat == 1}}" bindblur='checkWechat' />
+        <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size: 0" bindtap='updateWechat' wx:if="{{updateWechat == 0}}">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{wechat}}</view>
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;" wx:if="{{wechat == null || wechat == ''}}">点击添加</view>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">性别:</view>
+        <view class="weui-cell__ft" style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{user.sex}}</view>
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;" wx:if="{{user.sex == null}}">点击添加</view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd">出生日期:</view>
+        <picker mode="date" value="{{date}}" start="1990-01-01" end="2017-09-01" bindchange="bindDateChange">
+          <view class="weui-cell__ft weui-cell__ft_in-access">{{date}}</view>
+          <view wx:if="{{date == null}}">点击添加</view>
+        </picker>
+      </view>
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd">居住地址:</view>
+        <input class="weui-input" placeholder="输入居住地址" name="address_home" confirm-type="done" wx:if="{{updateAddress_home == 1}}" bindblur='checkAddress_home' />
+        <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size: 0" bindtap='updateAddress_home' wx:if="{{updateAddress_home == 0}}">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{address_home}}</view>
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;" wx:if="{{address_home == null || address_home == ''}}">点击添加</view>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">认证公司:</view>
+        <view class="weui-cell__ft" style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{user.name_company}}</view>
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;" wx:if="{{user.name_company == null}}">点击认证</view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd">公司地址:</view>
+        <input class="weui-input" placeholder="输入公司地址" name="address_company" confirm-type="done" wx:if="{{updateAddress_com == 1}}" bindblur='checkAddress_com' />
+        <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size: 0" bindtap='updateAddress_company' wx:if="{{updateAddress_com == 0}}">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;">{{address_company}}</view>
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;" wx:if="{{address_company == null || address_company == ''}}">点击添加</view>
+        </view>
+      </view>
+
+    </view>
+    <view class="page__ft page__ft_spacing" wx:if="{{updateFlag == 1}}">
+      <view class="button-sp-area">
+        <button class="weui-btn" type="primary" bindtap='submitUpdate'>保存修改</button>
+      </view>
+    </view>
+  </view>
+</view>

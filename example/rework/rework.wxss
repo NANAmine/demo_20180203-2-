@@ -1,0 +1,33 @@
+/* example/rework/rework.wxss */
+.magingout{
+  margin-left: 17%;
+  margin-top: 20px;
+}
+.magingin{
+  margin-left: 5%;
+}
+.bq{
+  float: left;
+  width: 20%;
+  margin-left: 5%;
+  margin-right: 5%;
+  background: blue;
+}
+.toleft{
+  margin-left: -20%;
+}
+.wightone{
+  width: 100%;
+}
+.magingtextarea{
+  margin-top: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.higth{
+  height: 150px;
+}
+.mainw{
+  margin-left: 5%;
+  width: 90%;
+}

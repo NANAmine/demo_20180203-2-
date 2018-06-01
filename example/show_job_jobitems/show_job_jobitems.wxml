@@ -1,0 +1,84 @@
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">{{title}}</view>
+
+  </view>
+  <!--<view class="weui-flex">
+      <view class="weui-flex__item">
+        <view class="placeholder">weui4</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui5</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui6</view>
+      </view>
+    </view>  -->
+  <view class="page__bd">
+    <view class="weui-cells weui-cells_after-title" wx:for="{{jobitemItems}}" wx:key="id" style='margin-bottom: 5px;'>
+      <view class="weui-cell" bindtap='toJobitem' data-id='{{item.jobitem.id}}'>
+        <view class="weui-cell__bd">
+          <view class="weui-flex">
+            <view class="weui-flex__item">
+              <view style="margin-left: 5px;">工种：{{item.jobitem.jobtype.name}}</view>
+            </view>
+            <view class="weui-flex__item">
+              <view>技能 ：
+                <view class="weui-badge" style="margin-left: 5px;" wx:for="{{item.skills}}" wx:key="id">{{item.name}}</view>
+              </view>
+            </view>
+          </view>
+          <view class="weui-flex" style='margin-top: 10px;'>
+            <view class="weui-flex__item " style="margin-left: 5px;">状态：
+              <view class="weui-badge" style="margin-left: 5px; background-color: green" wx:if="{{item.jobitem.jobitem_status == 5}}">请求开工</view>
+              <view class="weui-badge" style="margin-left: 5px; background-color: green" wx:if="{{item.jobitem.jobitem_status == 4}}">请求完工</view>
+              <view class="weui-badge" style="margin-left: 5px; background-color: green" wx:if="{{item.jobitem.jobitem_status == 3}}">已选择</view>
+              <view class="weui-badge" style="margin-left: 5px; background-color: green" wx:if="{{item.jobitem.jobitem_status == 2}}">等待选人</view>
+              <view class="weui-badge" style="margin-left: 5px; background-color: green" wx:if="{{item.jobitem.jobitem_status == 1}}">施工中</view>
+              <view class="weui-badge" style="margin-left: 5px; background-color: green" wx:if="{{item.jobitem.jobitem_status == 0}}">等待接单</view>
+              <view class="weui-badge" style="margin-left: 5px; background-color: green" wx:if="{{item.jobitem.jobitem_status == -1}}">等待评价</view>
+              <view class="weui-badge" style="margin-left: 5px; background-color: green" wx:if="{{item.jobitem.jobitem_status == -2}}">结束</view>
+              <!-- <view class="weui-badge" style="margin-left: 5px; background-color: #FF4500" wx:if="{{item.jobitem.jobitem_status == 4}}">提示：24小时后将自动完工</view> -->
+            </view>
+            <view class="weui-flex__item">加急：
+              <view class="weui-badge" style="margin-left: 5px; " wx:if="{{item.jobitem.urgent_status == 1}}">￥{{item.jobitem.urgent_fee}}</view>
+              <view class="weui-badge" style="margin-left: 5px; " wx:if="{{item.jobitem.urgent_status == 0}}">未加急</view>
+            </view>
+
+          </view>
+          <view class="weui-flex" style='margin-top: 10px;'>
+            <view class="weui-flex__item">
+              <view class="weui-badge" style="margin-left: 5px; background-color: #FF4500" wx:if="{{item.jobitem.jobitem_status == 4}}">提示：24小时后将自动完工</view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-cell" wx:for="{{item.jobitem_users}}" wx:key="id" bindtap='toUser' data-id='{{item.user.id}}'>
+        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;margin-left: 20px;">
+          <view style="display: inline-block; vertical-align: middle">{{item.user.name[0]}}师傅</view>
+        </view>
+        <view class="weui-cell__bd">
+
+          <view class="weui-badge" style="margin-left: 5px; background-color: #87CEEB">评分：{{item.user.avgscore_worker}}</view>
+          <view class="weui-badge" style="margin-left: 5px; background-color: #87CEEB" wx:if="{{item.user.user_authenticPer == 1}}">个人认证</view>
+          <view class="weui-badge" style="margin-left: 5px; background-color: #87CEEB" wx:if="{{item.jobitem_status == 1}}">选中</view>
+          <view class="weui-badge" style="margin-left: 5px; background-color: #87CEEB" wx:if="{{item.jobitem_status == 2}}">落选</view>
+          <view class="weui-badge" style="margin-left: 5px;" wx:for="{{item.user.skills}}" wx:key="id">{{item.name}}</view>
+        </view>
+        <view class="weui-cell__ft">
+          <button class="weui-btn mini-btn" hover-stop-propagation='true' type="primary" size="mini" wx:if="{{item.jobitem.jobitem_status == 2}}" bindtap='ensure_user' data-id='{{item.id}}'>选中</button>
+          <button class="weui-btn mini-btn" hover-stop-propagation='true' type="primary" size="mini" wx:if="{{item.jobitem.jobitem_status == 3}}" bindtap='startwork' data-id='{{item.id}}'>开工</button>
+          <button class="weui-btn mini-btn" hover-stop-propagation='true' type="primary" style='margin-left:5px;' size="mini" wx:if="{{item.jobitem.jobitem_status == 3}}" bindtap='phono' data-id='{{item.id}}'>电话</button>
+          <button class="weui-btn mini-btn" hover-stop-propagation='true' type="primary" size="mini" wx:if="{{item.jobitem.jobitem_status == 4}}" bindtap='endwork' data-id='{{item.id}}'>完工</button>
+          <button class="weui-btn mini-btn" hover-stop-propagation='true' style='margin-left:5px;' type="primary" size="mini" wx:if="{{item.jobitem.jobitem_status == 4}}" bindtap='rework' data-id='{{item.id}}'>返工</button>
+        </view>
+      </view>
+      <view class="weui-form-preview__ft">
+        <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" data-id="{{item.jobitem.id}}" bindtap='delete_jobitem'>删除</navigator>
+        <navigator class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" data-id="{{item.jobitem.id}}" bindtap='toUpdate_jobitem'>修改</navigator>
+         <navigator class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" data-id="{{item.jobitem.id}}" bindtap='toevaluation'>评价测试</navigator>
+      </view>
+    </view>
+  </view>
+</view>

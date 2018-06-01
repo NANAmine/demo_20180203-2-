@@ -1,0 +1,57 @@
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">Flex</view>
+    <view class="page__desc">Flex布局</view>
+  </view>
+  <view class="page__bd page__bd_spacing">
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <view class="placeholder">weui1</view>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <view class="placeholder">weui2</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui3</view>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <view class="placeholder">weui4</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui5</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui6</view>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <view class="placeholder">weui7</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui8</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui9</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui10</view>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <view>
+        <view class="placeholder">weui11</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui12</view>
+      </view>
+      <view>
+        <view class="placeholder">weui13</view>
+      </view>
+    </view>
+  </view>
+</view>

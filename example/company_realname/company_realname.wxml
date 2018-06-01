@@ -1,0 +1,61 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+  <view class="page__bd">
+    <p style="color: red;">注意：认证信息一旦认证成功无法修改，请务必真实填写</p>
+    <view class="weui-form-preview__hd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">认证状态：{{companyreamnameflag}}</view>
+      </view>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">公司名称</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input id='companyname' value="{{companyname}}" bindinput='gettextarea' class="weui-input" disabled='{{disabledflag}}' placeholder="请输入公司名称" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">营业执照</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input id='license' value="{{license}}" bindinput='gettextarea' class="weui-input" disabled='{{disabledflag}}' placeholder="请输入营业执照号码" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">公司地址</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input id='companyaddress' value="{{companyaddress}}" bindinput='gettextarea' class="weui-input" disabled='{{disabledflag}}' placeholder="请输入公司地址" />
+        </view>
+      </view>
+
+
+      <!-- <view class="weui-cell__ft">
+          <icon type="warn" size="23" color="#E64340"></icon>
+        </view> -->
+
+
+    </view>
+    <view class='center top'>
+      <button class="weui-btn mini-btn center" type="primary" size="mini" bindtap="chooseImage">{{buttonname}}</button>
+    </view>
+
+    <view class="weui-uploader__bd left" style=''>
+      <view hidden='{{files==""}}' class="weui-uploader__file " bindtap="previewImage" id="files">
+        <image class="weui-uploader__img " src="{{files}}" mode="aspectFit" />
+      </view>
+      <view hidden='{{files!=""}}' class="weui-uploader__file">
+      <image class="weui-uploader__img " src="{{imgsrc}}" mode="aspectFit" bindtap="chooseImage" />
+        <!-- <view class="weui-uploader__input" bindtap="chooseImage"></view> -->
+      </view>
+    </view>
+
+    <view class="weui-btn-area">
+      <button class="weui-btn" hidden='{{sunmitshow}}' type="primary" bindtap="formSubmit">提交</button>
+      <button class="weui-btn" hidden='{{!sunmitshow}}' type="primary" bindtap="comeback">确认</button>
+    </view>
+  </view>
+</view>

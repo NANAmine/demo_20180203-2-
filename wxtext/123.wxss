@@ -1,0 +1,35 @@
+.table {
+  width: 100%;
+  background-color: white
+}
+
+.tr {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.th, .td {
+  width: 100%;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.th {
+  font-size: 20px;
+  text-align: center;
+  background-color: #dadada;
+}
+
+.job_type{
+  font-size: 20px;
+  background-color: lightblue;
+  text-align: center;
+}
+
+.fee{
+  font-size: 20px;
+  background-color: lightgreen;
+  text-align: center;
+}
